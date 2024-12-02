@@ -1,5 +1,9 @@
-FROM ghcr.io/rhino-linux/docker:latest
+FROM ubuntu:latest
 
-COPY entrypoint.sh /entrypoint.sh
+USER root
 
-ENTRYPOINT ["/entrypoint.sh"]
+COPY rhino-linux-runner.sh /rhino-linux-runner.sh
+
+RUN chmod +x /rhino-linux-runner.sh
+
+ENTRYPOINT ["/rhino-linux-runner.sh"]

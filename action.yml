@@ -6,13 +6,17 @@ branding:
   color: 'blue'
 
 inputs:
-  message:
-    description: 'Test'
+  arch:
+    description: 'CPU Architecture: amd64, arm64, x86_64, aarch64'
     required: true
-    default: 'Hello World'
+  
+  run: 
+    description: 'Shell commands to execute in Rhino Linux'
+    required: true
 
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.message }}
+    - ${{ inputs.arch }}
+    - ${{ inputs.run }}
